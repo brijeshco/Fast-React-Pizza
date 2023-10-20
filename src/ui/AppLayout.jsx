@@ -1,6 +1,6 @@
 import Header from './Header';
 import Loader from './Loader';
-import CartOverview from '../features/cart/CartOverview';
+import CartOverview from '../Features/cart/CartOverview';
 import { Outlet, useNavigation } from 'react-router-dom';
 
 function AppLayout() {
