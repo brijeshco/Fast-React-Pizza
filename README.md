@@ -1,6 +1,6 @@
 # Pizza Ordering App - Single Page Application (SPA)
 
-Link - https://neon-tiramisu-0f0b5f.netlify.app/
+Link - https://fastreactpizzaapp.netlify.app/
 
 Welcome to the Pizza Ordering App SPA repository! This project is a web-based application for ordering delicious pizzas online. It is built using React and utilizes the React Router for navigation. The app allows users to browse the menu, create orders, and view the status of their orders.
 
