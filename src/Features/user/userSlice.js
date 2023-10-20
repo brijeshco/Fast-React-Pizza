@@ -41,7 +41,7 @@ const userSlice = createSlice({
   },
   extraReducers: (builder) =>
     builder
-      .addCase(fetchAddress.pending, (state) => {
+      .addCase(fetchAddress.pending, (state, action) => {
         state.status = 'loading';
       })
       .addCase(fetchAddress.fulfilled, (state, action) => {
@@ -49,7 +49,7 @@ const userSlice = createSlice({
         state.address = action.payload.address;
         state.status = 'idle';
       })
-      .addCase(fetchAddress.rejected, (state) => {
+      .addCase(fetchAddress.rejected, (state, action) => {
         state.status = 'error';
         state.error =
           'There was a problem getting your address. Make sure to fill this field!';
