@@ -1,4 +1,4 @@
-import React, { lazy } from 'react';
+import React from 'react';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { action as updateOrderAction } from './Features/order/UpdateOrder';
 import Error from './ui/Error';
@@ -8,12 +8,11 @@ import { action as createOrderAction } from './Features/order/CreateOrder';
 import { loader as orderLoader } from './Features/order/Order';
 import AppLayout from './ui/AppLayout';
 import Loader from './ui/Loader';
-
-const Home = lazy(() => import('./ui/Home'));
-const Menu = lazy(() => import('./Features/menu/Menu'));
-const Cart = lazy(() => import('./Features/cart/Cart'));
-const CreateOrder = lazy(() => import('./Features/order/CreateOrder'));
-const Order = lazy(() => import('./Features/order/Order'));
+import CreateOrder from './Features/order/CreateOrder';
+import Menu from './Features/menu/Menu';
+import Order from './Features/order/Order';
+import Home from './ui/Home';
+import Cart from './Features/cart/Cart';
 
 const router = createBrowserRouter([
   {
