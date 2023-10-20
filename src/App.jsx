@@ -1,23 +1,22 @@
-import React from 'react';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import { action as updateOrderAction } from './Features/order/UpdateOrder';
-import Error from './ui/Error';
 
-import { loader as menuLoader } from './Features/menu/Menu';
-import { action as createOrderAction } from './Features/order/CreateOrder';
-import { loader as orderLoader } from './Features/order/Order';
-import AppLayout from './ui/AppLayout';
-import Loader from './ui/Loader';
-import CreateOrder from './Features/order/CreateOrder';
-import Menu from './Features/menu/Menu';
-import Order from './Features/order/Order';
 import Home from './ui/Home';
-import Cart from './Features/cart/Cart';
+import Error from './ui/Error';
+import Menu, { loader as menuLoader } from './features/menu/Menu';
+import Cart from './features/cart/Cart';
+import CreateOrder, {
+  action as createOrderAction,
+} from './features/order/CreateOrder';
+import Order, { loader as orderLoader } from './features/order/Order';
+import { action as updateOrderAction } from './features/order/UpdateOrder';
+
+import AppLayout from './ui/AppLayout';
 
 const router = createBrowserRouter([
   {
-    element: <Top />,
+    element: <AppLayout />,
     errorElement: <Error />,
+
     children: [
       {
         path: '/',
@@ -29,10 +28,7 @@ const router = createBrowserRouter([
         loader: menuLoader,
         errorElement: <Error />,
       },
-      {
-        path: '/cart',
-        element: <Cart />,
-      },
+      { path: '/cart', element: <Cart /> },
       {
         path: '/order/new',
         element: <CreateOrder />,
@@ -45,24 +41,12 @@ const router = createBrowserRouter([
         errorElement: <Error />,
         action: updateOrderAction,
       },
-      {
-        path: '*',
-        element: <Error />,
-      },
     ],
   },
 ]);
 
 function App() {
-  return <RouterProvider router={router}></RouterProvider>;
-}
-
-function Top() {
-  return (
-    <React.Suspense fallback={<Loader />}>
-      <AppLayout />
-    </React.Suspense>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
