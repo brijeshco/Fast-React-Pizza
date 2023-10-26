@@ -18,12 +18,10 @@ export default UpdateOrder;
 
 export async function action({ request, params }) {
   store.dispatch(isLoadingPriority());
-
   const data = { priority: true };
-  console.log(request);
 
   await updateOrder(params.orderId, data);
-  console.log(request);
+
   store.dispatch(isLoadingPriority());
 
   return null;
